@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансовая грамотность — полный гид</title>
+    <style>
+        :root {
+            --bg: #eef2ff;
+            --card: #f8fafc;
+            --accent: #4f46e5;
+            --text: #1e293b;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Inter, Arial, sans-serif;
+            background: linear-gradient(180deg, #eef2ff, #f8fafc);
+            color: var(--text);
+        }
+        header {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 42px;
+            margin: 0;
+        }
+        p {
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+        }
+        nav button {
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        nav button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            display: none;
+            animation: fade 0.4s;
+        }
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bar {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        input,
+        button {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+        button.primary {
+            background: var(--accent);
+            color: white;
+            cursor: pointer;
+        }
+
+        .progress {
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress div {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+        }
+        .result-text {
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        .highlight {
+            background: #e0e7ff;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Финансовая грамотность</h1>
+        <p>Практичный интерактивный ресурс для понимания денег, бюджета, кредитов и безопасности</p>
+    </header>
+
+    <nav>
+        <button onclick="show('home')">Главная</button>
+        <button onclick="show('theory')">Теория</button>
+        <button onclick="show('budget')">Бюджет</button>
+        <button onclick="show('security')">Безопасность</button>
+        <button onclick="show('credit')">Кредиты</button>
+        <button onclick="show('calc')">Калькулятор</button>
+        <button onclick="show('quiz')">Тест</button>
+    </nav>
+
+    <div class="container">
+
+        <!-- Главная -->
+        <section id="home" class="section active">
+            <p>
+                Финансовая грамотность — это один из ключевых навыков современного человека. Уже в подростковом возрасте люди начинают сталкиваться с деньгами: получают карманные средства, совершают покупки в интернете и используют банковские сервисы. Однако без понимания базовых принципов управления финансами легко совершать ошибки. Этот сайт создан как удобный инструмент, который помогает разобраться в теме простым языком. Здесь вы найдёте объяснения, примеры и интерактивные инструменты, которые помогут применять знания на практике. Главная цель — научить принимать разумные финансовые решения, планировать расходы и избегать рисков.
+            </p>
+            <p>
+                По статистике, люди, ведущие учёт доходов и расходов, на 40% реже сталкиваются с нехваткой денег до зарплаты. А те, кто имеет финансовую подушку безопасности, чувствуют себя увереннее в кризисных ситуациях. Умение откладывать хотя бы 10% дохода — привычка, которая меняет жизнь.
+            </p>
+            <div class="grid">
+                <div class="card"><h2>80%</h2><p>подростков совершают онлайн‑покупки</p></div>
+                <div class="card"><h2>60%</h2><p>не ведут учёт расходов</p></div>
+                <div class="card"><h2>30%</h2><p>сталкивались с мошенничеством</p></div>
+                <div class="card"><h2>45%</h2><p>хотели бы научиться инвестировать</p></div>
+            </div>
+        </section>
+
+        <!-- Теория -->
+        <section id="theory" class="section">
+            <p>Финансовая грамотность включает в себя знания, навыки и поведение, связанные с управлением деньгами. Она помогает понимать ценность денег, планировать расходы и избегать долгов. Изучение основ начинается с простых понятий.</p>
+            <div class="bar"><strong>Финансы</strong> — система управления деньгами, включающая доходы, расходы, сбережения и инвестиции.</div>
+            <div class="bar"><strong>Доходы</strong> — все поступающие деньги: зарплата, стипендия, подарки, доход от подработки.</div>
+            <div class="bar"><strong>Расходы</strong> — деньги, которые тратятся на обязательные нужды (еда, жильё) и на желания.</div>
+            <div class="bar"><strong>Сбережения</strong> — отложенные средства, которые формируют финансовую подушку и помогают достигать крупных целей.</div>
+            <div class="bar"><strong>Цели</strong> — конкретные причины, ради которых люди копят: новый телефон, поездка, образование или собственная квартира.</div>
+            <div class="bar"><strong>Активы</strong> — то, что приносит доход (вклад в банке, акции, сдаваемая в аренду недвижимость).</div>
+            <div class="bar"><strong>Пассивы</strong> — то, что забирает деньги из кармана (потребительский кредит, автомобиль, требующий постоянных трат).</div>
+            <div class="bar"><strong>Инфляция</strong> — обесценивание денег со временем, из-за чего товары дорожают.</div>
+            <div class="bar"><strong>Диверсификация</strong> — правило «не класть все яйца в одну корзину»: распределение сбережений по разным инструментам для снижения риска.</div>
+            <div class="highlight">
+                <p>💡 Хорошая финансовая привычка — каждую неделю уделять 15 минут анализу своих трат и планированию бюджета на следующую.</p>
+            </div>
+        </section>
+
+        <!-- Бюджет -->
+        <section id="budget" class="section">
+            <p>Личный бюджет — это основа финансовой стабильности. Он позволяет контролировать деньги, избегать лишних трат и достигать целей. Самый простой способ — записывать все доходы и расходы, а затем анализировать их.</p>
+            <div class="bar"><strong>1. Записывай доходы</strong> — фиксируй каждую сумму, которую получаешь.</div>
+            <div class="bar"><strong>2. Разделяй расходы</strong> — обязательные (коммуналка, проезд, еда) и необязательные (развлечения, кафе).</div>
+            <div class="bar"><strong>3. Планируй заранее</strong> — в начале месяца распределяй деньги по категориям.</div>
+            <div class="bar"><strong>4. Откладывай минимум 10%</strong> — плати сначала себе, а потом трать на остальное.</div>
+            <div class="bar"><strong>5. Используй правило 50/30/20</strong> — 50% дохода на необходимые нужды, 30% на желания, 20% на сбережения и погашение долгов.</div>
+            <div class="bar"><strong>6. Веди учёт ежедневно</strong> — даже маленькие покупки складываются в крупные суммы за месяц.</div>
+            <div class="bar"><strong>7. Анализируй траты</strong> — раз в месяц смотри, куда ушли деньги, и корректируй план.</div>
+            <div class="bar"><strong>8. Создай резервный фонд</strong> — сумма на 3–6 месяцев жизни на случай потери дохода.</div>
+            <div class="highlight">
+                <p>📊 Пример: если доход 30 000 ₽, то 15 000 ₽ — обязательные нужды, 9 000 ₽ — «хотелки», 6 000 ₽ — сбережения и инвестиции.</p>
+            </div>
+        </section>
+
+        <!-- Безопасность -->
+        <section id="security" class="section">
+            <p>Финансовая безопасность особенно важна в интернете. Мошенники используют психологию и невнимательность пользователей. Знание основных схем помогает защитить свои деньги.</p>
+            <div class="bar"><strong>Не сообщай данные карты</strong> — CVV-код, срок действия и PIN-код нельзя передавать никому.</div>
+            <div class="bar"><strong>Проверяй сайты</strong> — адрес должен начинаться с https://, а в адресной строке быть значок замка.</div>
+            <div class="bar"><strong>Не переходи по ссылкам</strong> — из подозрительных писем и сообщений, даже если они выглядят как от банка.</div>
+            <div class="bar"><strong>Остерегайся фишинга</strong> — поддельные страницы, копирующие сайты банков, крадут логины и пароли.</div>
+            <div class="bar"><strong>Не верь «выгодным» предложениям</strong> — обещания лёгкого заработка или мгновенного выигрыша почти всегда обман.</div>
+            <div class="bar"><strong>Используй сложные пароли</strong> — не менее 12 символов с буквами, цифрами и спецсимволами, уникальные для каждого сервиса.</div>
+            <div class="bar"><strong>Включи двухфакторную аутентификацию</strong> — дополнительный код в SMS или приложении защитит аккаунт от взлома.</div>
+            <div class="bar"><strong>Не разговаривай с «сотрудниками банка»</strong> — если звонят и просят срочно перевести деньги, положи трубку и перезвони сам по официальному номеру.</div>
+            <div class="bar"><strong>Проверяй информацию</strong> — если в соцсетях друг просит в долг, свяжись с ним лично.</div>
+            <div class="highlight">
+                <p>🛡️ Запомни: настоящий банк никогда не попросит тебя назвать полные данные карты или коды из SMS.</p>
+            </div>
+        </section>
+
+        <!-- Кредиты -->
+        <section id="credit" class="section">
+            <p>Кредиты могут быть полезным инструментом, но требуют ответственного подхода. Важно понимать, как работает кредитование, чтобы не попасть в долговую яму.</p>
+            <div class="bar"><strong>Что такое кредит?</strong> — это деньги, которые банк даёт в долг под процент. Ты возвращаешь сумму долга плюс проценты за пользование.</div>
+            <div class="bar"><strong>Сравнивай условия</strong> — перед тем как взять кредит, изучи несколько предложений: годовую процентную ставку, скрытые комиссии и сроки.</div>
+            <div class="bar"><strong>Бери кредит только при необходимости</strong> — на образование, лечение или жильё, а не на развлечения и импульсивные покупки.</div>
+            <div class="bar"><strong>Избегай микрозаймов</strong> — до зарплаты с огромными процентами (до 0,8% в день) могут быстро превратить небольшой долг в неподъёмный.</div>
+            <div class="bar"><strong>Проверяй кредитную историю</strong> — она влияет на возможность получить кредит в будущем. Задержки платежей портят репутацию.</div>
+            <div class="bar"><strong>Считай полную стоимость кредита</strong> — не только ежемесячный платёж, но и переплату за весь срок.</div>
+            <div class="bar"><strong>Не давай в долг друзьям под свою ответственность</strong> — если берёшь кредит для другого человека, платить всё равно придётся тебе.</div>
+            <div class="bar"><strong>Долги нужно возвращать вовремя</strong> — просрочка ведёт к штрафам и звонкам коллекторов.</div>
+            <div class="highlight">
+                <p>⚠️ Хорошее правило: ежемесячный платёж по всем кредитам не должен превышать 30–35% твоего дохода.</p>
+            </div>
+        </section>
+
+        <!-- Калькулятор -->
+        <section id="calc" class="section">
+            <h3>📊 Калькулятор бюджета</h3>
+            <input id="income" type="number" placeholder="Доход (₽)">
+            <input id="expenses" type="number" placeholder="Расходы (₽)">
+            <button class="primary" onclick="calc()">Рассчитать остаток</button>
+            <div id="result" class="result-text"></div>
+
+            <h3 style="margin-top:30px;">🎯 Прогресс цели</h3>
+            <input id="goal" type="number" placeholder="Сумма цели (₽)">
+            <input id="saved" type="number" placeholder="Накоплено (₽)">
+            <button class="primary" onclick="progress()">Показать прогресс</button>
+            <div class="progress"><div id="bar"></div></div>
+            <div id="progressText" class="result-text"></div>
+
+            <h3 style="margin-top:30px;">⏳ Срок накопления</h3>
+            <p>Узнай, сколько месяцев потребуется, чтобы накопить на цель с учётом того, что ты уже откладываешь ежемесячно.</p>
+            <input id="goalTime" type="number" placeholder="Цель (₽)">
+            <input id="alreadySaved" type="number" placeholder="Уже накоплено (₽)">
+            <input id="monthlySaving" type="number" placeholder="Ежемесячные сбережения (₽)">
+            <button class="primary" onclick="timeToGoal()">Рассчитать</button>
+            <div id="timeResult" class="result-text"></div>
+        </section>
+
+        <!-- Тест -->
+        <section id="quiz" class="section">
+            <h3>📝 Проверь свои знания</h3>
+
+            <p>1. Что важнее для финансовой стабильности?</p>
+            <label><input type="radio" name="q1" value="1"> контроль расходов и планирование</label>
+            <label><input type="radio" name="q1" value="0"> тратить всё, что заработал</label>
+
+            <p>2. Лучший способ накопить на крупную покупку?</p>
+            <label><input type="radio" name="q2" value="1"> регулярно откладывать часть дохода</label>
+            <label><input type="radio" name="q2" value="0"> взять кредит на всю сумму сразу</label>
+
+            <p>3. Как обычно действуют мошенники?</p>
+            <label><input type="radio" name="q3" value="1"> торопят и создают ощущение срочности</label>
+            <label><input type="radio" name="q3" value="0"> дают много времени на размышления</label>
+
+            <p>4. Бюджет — это:</p>
+            <label><input type="radio" name="q4" value="1"> план доходов и расходов</label>
+            <label><input type="radio" name="q4" value="0"> только список того, что хочется купить</label>
+
+            <p>5. Нужно ли иметь сбережения?</p>
+            <label><input type="radio" name="q5" value="1"> да, это финансовая подушка безопасности</label>
+            <label><input type="radio" name="q5" value="0"> нет, все деньги должны работать в тратах</label>
+
+            <p>6. Опасный признак мошеннического сайта:</p>
+            <label><input type="radio" name="q6" value="1"> отсутствие https и странное доменное имя</label>
+            <label><input type="radio" name="q6" value="0"> наличие контактного телефона</label>
+
+            <p>7. Финансовая цель — это:</p>
+            <label><input type="radio" name="q7" value="1"> конкретная денежная задача с планом</label>
+            <label><input type="radio" name="q7" value="0"> мечта без каких-либо расчётов</label>
+
+            <p>8. Что такое кредитная история?</p>
+            <label><input type="radio" name="q8" value="1"> запись о твоих долгах и платежах</label>
+            <label><input type="radio" name="q8" value="0"> список твоих покупок в магазинах</label>
+
+            <p>9. Как уменьшить долговую нагрузку?</p>
+            <label><input type="radio" name="q9" value="1"> сначала закрыть самые дорогие кредиты</label>
+            <label><input type="radio" name="q9" value="0"> взять ещё один кредит на отдых</label>
+
+            <p>10. Стоит ли давать данные карты, если «друг» просит в соцсетях?</p>
+            <label><input type="radio" name="q10" value="1"> нет, это может быть взломанный аккаунт</label>
+            <label><input type="radio" name="q10" value="0"> да, ведь это друг</label>
+
+            <button class="primary" onclick="quiz()">Проверить</button>
+            <div id="quizResult" class="result-text" style="margin-top:15px;"></div>
+        </section>
+
+    </div>
+
+    <script>
+        function show(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function calc() {
+            let i = +document.getElementById('income').value || 0;
+            let e = +document.getElementById('expenses').value || 0;
+            let balance = i - e;
+            let message = "Остаток: " + balance + " ₽. ";
+            if (balance > 0) {
+                message += "Отлично! Можно отложить или инвестировать эту сумму.";
+            } else if (balance === 0) {
+                message += "Вы тратите ровно столько, сколько зарабатываете. Подумайте о создании подушки безопасности.";
+            } else {
+                message += "Расходы превышают доходы. Стоит пересмотреть траты.";
+            }
+            document.getElementById('result').innerText = message;
+        }
+
+        function progress() {
+            let g = +document.getElementById('goal').value || 1;
+            let s = +document.getElementById('saved').value || 0;
+            let p = Math.min(100, (s / g) * 100);
+            document.getElementById('bar').style.width = p + "%";
+            let remaining = g - s;
+            let msg = p >= 100 ? "Поздравляем! Цель достигнута!" : "До цели осталось: " + remaining + " ₽";
+            document.getElementById('progressText').innerText = msg;
+        }
+
+        function timeToGoal() {
+            let goal = +document.getElementById('goalTime').value || 0;
+            let saved = +document.getElementById('alreadySaved').value || 0;
+            let monthly = +document.getElementById('monthlySaving').value || 0;
+            let remaining = goal - saved;
+            if (remaining <= 0) {
+                document.getElementById('timeResult').innerText = "Цель уже достигнута!";
+                return;
+            }
+            if (monthly <= 0) {
+                document.getElementById('timeResult').innerText = "Укажите сумму ежемесячных сбережений больше нуля.";
+                return;
+            }
+            let months = Math.ceil(remaining / monthly);
+            let years = Math.floor(months / 12);
+            let mon = months % 12;
+            let text = "Потребуется примерно " + months + " мес.";
+            if (years > 0) {
+                text += " (" + years + " г. " + mon + " мес.)";
+            }
+            text += " при откладывании " + monthly + " ₽ в месяц.";
+            document.getElementById('timeResult').innerText = text;
+        }
+
+        function quiz() {
+            let score = 0;
+            for (let i = 1; i <= 10; i++) {
+                let a = document.querySelector('input[name=q' + i + ']:checked');
+                if (a && a.value == "1") score++;
+            }
+            let message = "Результат: " + score + "/10. ";
+            if (score >= 9) message += "Превосходно! Вы отлично разбираетесь в финансах.";
+            else if (score >= 7) message += "Хорошо, но есть куда расти.";
+            else if (score >= 5) message += "Неплохо, но советуем повторить теорию.";
+            else message += "Стоит подучить основы. Пройдите разделы ещё раз.";
+            document.getElementById('quizResult').innerText = message;
+        }
+    </script>
+
+</body>
+</html>
